@@ -1,0 +1,284 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/25/2018  16:24:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\simon.obj TO .\Objects\simon PRINT (.\Listings\simon.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\simon.obj (SIMON)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULSHR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSHL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\simon (SIMON)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0051H     UNIT         ?DT?SIMON
+            DATA    0059H     0008H     UNIT         _DATA_GROUP_
+            IDATA   0061H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     015AH     UNIT         ?PR?LFSR113_BITS?SIMON
+            CODE    095AH     008CH     UNIT         ?C_C51STARTUP
+            CODE    09E6H     004EH     UNIT         ?PR?START_GAME?SIMON
+            CODE    0A34H     0043H     UNIT         ?PR?GET?SIMON
+            CODE    0A77H     003FH     UNIT         ?PR?_CHECK_GAME?SIMON
+            CODE    0AB6H     003DH     UNIT         ?PR?MAIN?SIMON
+            CODE    0AF3H     0028H     UNIT         ?PR?_DELAY?SIMON
+            CODE    0B1BH     0027H     UNIT         ?C_INITSEG
+            CODE    0B42H     0026H     UNIT         ?C?LIB_CODE
+            CODE    0B68H     0025H     UNIT         ?PR?INIT_RANDOM_BITS?SIMON
+            CODE    0B8DH     0013H     UNIT         ?PR?DELAY_ONE_MS?SIMON
+            CODE    0BA0H     0004H     UNIT         ?PR?IDLE?SIMON
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\simon (SIMON)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?SIMON
+  +--> ?C_INITSEG
+
+?PR?MAIN?SIMON                     -----    -----
+  +--> ?PR?INIT_RANDOM_BITS?SIMON
+  +--> ?PR?_DELAY?SIMON
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/25/2018  16:24:19  PAGE 2
+
+
+  +--> ?PR?IDLE?SIMON
+  +--> ?PR?START_GAME?SIMON
+  +--> ?PR?GET?SIMON
+
+?PR?INIT_RANDOM_BITS?SIMON         0059H    0004H
+  +--> ?PR?LFSR113_BITS?SIMON
+
+?PR?LFSR113_BITS?SIMON             005DH    0004H
+
+?PR?_DELAY?SIMON                   -----    -----
+  +--> ?PR?DELAY_ONE_MS?SIMON
+
+?PR?START_GAME?SIMON               -----    -----
+  +--> ?PR?_DELAY?SIMON
+
+?PR?GET?SIMON                      -----    -----
+  +--> ?PR?_DELAY?SIMON
+  +--> ?PR?_CHECK_GAME?SIMON
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\simon (SIMON)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SIMON
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:0018H         SYMBOL        game_number
+  B:00A0H.4       PUBLIC        START
+  C:0B00H         PUBLIC        _delay
+  B:00B0H.3       PUBLIC        CORRECT
+  B:00B0H.7       PUBLIC        ON
+  C:0BA0H         PUBLIC        idle
+  C:0AB6H         PUBLIC        main
+  C:09E6H         PUBLIC        start_game
+  D:001AH         SYMBOL        xbyte
+  C:0B68H         PUBLIC        init_random_bits
+  D:0089H         PUBLIC        TMOD
+  D:0022H         PUBLIC        temp
+  B:00B0H.6       PUBLIC        START_O
+  C:0A34H         PUBLIC        get
+  C:0800H         PUBLIC        lfsr113_Bits
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  B:00B0H.5       PUBLIC        GAMEOVER
+  D:0024H         SYMBOL        randbyte
+  D:0056H         SYMBOL        transfer
+  D:0057H         SYMBOL        check_number
+  C:0B8DH         PUBLIC        delay_one_ms
+  C:0A77H         PUBLIC        _check_game
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/25/2018  16:24:19  PAGE 3
+
+
+  -------         PROC          DELAY_ONE_MS
+  C:0B8DH         LINE#         5
+  C:0B8DH         LINE#         7
+  C:0B90H         LINE#         8
+  C:0B93H         LINE#         10
+  C:0B96H         LINE#         11
+  C:0B98H         LINE#         13
+  C:0B9BH         LINE#         15
+  C:0B9DH         LINE#         16
+  C:0B9FH         LINE#         17
+  -------         ENDPROC       DELAY_ONE_MS
+  C:0AFAH         SYMBOL        L?0046
+  C:0AFCH         SYMBOL        L?0047
+  -------         PROC          L?0045
+  -------         ENDPROC       L?0045
+  C:0AFAH         SYMBOL        L?0046
+  C:0AFCH         SYMBOL        L?0047
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        times
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0B00H         LINE#         20
+  C:0B00H         LINE#         22
+  C:0B10H         LINE#         23
+  C:0B13H         LINE#         24
+  C:0B1AH         LINE#         25
+  -------         ENDPROC       _DELAY
+  -------         PROC          LFSR113_BITS
+  -------         DO            
+  D:0008H         SYMBOL        z1
+  D:000CH         SYMBOL        z2
+  D:0010H         SYMBOL        z3
+  D:0014H         SYMBOL        z4
+  D:005DH         SYMBOL        b
+  -------         ENDDO         
+  C:0800H         LINE#         1
+  C:0800H         LINE#         2
+  C:0800H         LINE#         5
+  C:082AH         LINE#         6
+  C:0851H         LINE#         7
+  C:087BH         LINE#         8
+  C:08A2H         LINE#         9
+  C:08CCH         LINE#         10
+  C:08F3H         LINE#         11
+  C:091DH         LINE#         12
+  C:0944H         LINE#         13
+  C:0959H         LINE#         14
+  -------         ENDPROC       LFSR113_BITS
+  -------         PROC          INIT_RANDOM_BITS
+  -------         DO            
+  D:0002H         SYMBOL        i
+  -------         DO            
+  D:0059H         SYMBOL        x
+  -------         ENDDO         
+  -------         ENDDO         
+  C:0B68H         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/25/2018  16:24:19  PAGE 4
+
+
+  C:0B68H         LINE#         18
+  C:0B6BH         LINE#         19
+  C:0B76H         LINE#         20
+  C:0B81H         LINE#         21
+  C:0B8CH         LINE#         22
+  -------         ENDPROC       INIT_RANDOM_BITS
+  -------         PROC          IDLE
+  C:0BA0H         LINE#         5
+  C:0BA0H         LINE#         6
+  C:0BA3H         LINE#         9
+  -------         ENDPROC       IDLE
+  -------         PROC          START_GAME
+  C:09E6H         LINE#         11
+  C:09E6H         LINE#         12
+  C:09E9H         LINE#         13
+  C:09EBH         LINE#         14
+  C:0A00H         LINE#         15
+  C:0A09H         LINE#         16
+  C:0A0CH         LINE#         17
+  C:0A0FH         LINE#         18
+  C:0A19H         LINE#         19
+  C:0A1CH         LINE#         20
+  C:0A24H         LINE#         21
+  C:0A2EH         LINE#         22
+  C:0A31H         LINE#         23
+  C:0A33H         LINE#         24
+  -------         ENDPROC       START_GAME
+  -------         PROC          _CHECK_GAME
+  D:0006H         SYMBOL        transfer
+  D:0004H         SYMBOL        temp
+  C:0A77H         LINE#         26
+  C:0A77H         LINE#         27
+  C:0A90H         LINE#         28
+  C:0A93H         LINE#         29
+  C:0A95H         LINE#         30
+  C:0A9AH         LINE#         31
+  C:0A9AH         LINE#         32
+  C:0A9EH         LINE#         33
+  C:0AA8H         LINE#         34
+  C:0AAEH         LINE#         35
+  C:0AB0H         LINE#         36
+  C:0AB2H         LINE#         37
+  C:0AB5H         LINE#         38
+  C:0AB5H         LINE#         39
+  -------         ENDPROC       _CHECK_GAME
+  -------         PROC          GET
+  C:0A34H         LINE#         41
+  C:0A34H         LINE#         42
+  C:0A36H         LINE#         43
+  C:0A38H         LINE#         44
+  C:0A48H         LINE#         45
+  C:0A4DH         LINE#         47
+  C:0A52H         LINE#         48
+  C:0A55H         LINE#         49
+  C:0A58H         LINE#         50
+  C:0A5DH         LINE#         53
+  C:0A6CH         LINE#         54
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/25/2018  16:24:19  PAGE 5
+
+
+  C:0A6CH         LINE#         55
+  C:0A6CH         LINE#         56
+  C:0A76H         LINE#         57
+  -------         ENDPROC       GET
+  -------         PROC          MAIN
+  C:0AB6H         LINE#         10
+  C:0AB6H         LINE#         12
+  C:0AB9H         LINE#         13
+  C:0ABBH         LINE#         14
+  C:0ABEH         LINE#         16
+  C:0AC1H         LINE#         17
+  C:0AC5H         LINE#         18
+  C:0AC7H         LINE#         19
+  C:0ACAH         LINE#         20
+  C:0ACDH         LINE#         21
+  C:0AE0H         LINE#         23
+  C:0AE0H         LINE#         24
+  C:0AE3H         LINE#         25
+  C:0AE5H         LINE#         28
+  C:0AE8H         LINE#         31
+  C:0AEBH         LINE#         32
+  C:0AEEH         LINE#         33
+  C:0AF1H         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        SIMON
+
+  -------         MODULE        ?C?ULSHR
+  C:0B42H         PUBLIC        ?C?ULSHR
+  -------         ENDMOD        ?C?ULSHR
+
+  -------         MODULE        ?C?LSHL
+  C:0B55H         PUBLIC        ?C?LSHL
+  -------         ENDMOD        ?C?LSHL
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02F1H BYTE (36%) *
+******************************************************************************
+
+Program Size: data=98.0 xdata=0 code=935
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
